@@ -1,19 +1,27 @@
 <template>
   <el-container>
-    <el-aside style="width: 180px">
-      <div>left菜单</div>
+    <el-aside>
+      <LeftAside></LeftAside>
     </el-aside>
     <el-container>
-      <el-header>Head</el-header>
-      <el-main>内容区域</el-main>
-      <el-footer>footer</el-footer>
+      <el-header>Low-Code</el-header>
+      <el-main><MidMain></MidMain></el-main>
+      <el-footer>底部标识</el-footer>
     </el-container>
   </el-container>
 </template>
 
 <script>
+  import LeftAside from '@/components/left_aside/left_aside.vue'
+  import MidMain from '@/components/mid_main/mid_main.vue';
+
 export default {
   name: "AppHome",
+  components:{
+    LeftAside,
+    MidMain,
+ 
+}
 };
 </script>
 
@@ -34,7 +42,7 @@ export default {
   background-color: #d3dce6;
   color: #333;
   text-align: center;
-  line-height: 200px;
+  width: 30%;
 }
 
 .el-main {
