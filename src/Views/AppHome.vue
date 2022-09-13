@@ -2,7 +2,7 @@
   <el-container>
     <el-aside>
       <LeftAside></LeftAside>
-    </el-aside>
+    </el-aside> 
     <el-container>
       <el-header>Low-Code</el-header>
       <el-main><MidMain></MidMain></el-main>

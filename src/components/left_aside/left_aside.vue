@@ -9,14 +9,15 @@
         :collapse="isCollapse"
         style="height: 100%"
       >
-        <el-menu-item index="1">
-          <i class="el-icon-document"></i>
-          <span slot="title">页面</span>
-        </el-menu-item>
-        <el-menu-item index="2">
+      <el-menu-item index="1">
           <i class="el-icon-menu"></i>
           <span slot="title">组件</span>
         </el-menu-item>
+        <el-menu-item index="2">
+          <i class="el-icon-document"></i>
+          <span slot="title">页面</span>
+        </el-menu-item>
+      
         <el-menu-item index="3">
           <i class="el-icon-document"></i>
           <span slot="title">数据源</span>
@@ -28,19 +29,23 @@
       </el-menu>
     </div>
     <div class="leftmain">
-        <div v-if="AsideChose==1">页面</div>
-        <div v-else-if="AsideChose==2">组件</div>
+        <div v-if="AsideChose==1"><el_list></el_list></div>
+        <div v-else-if="AsideChose==2">yemian</div>
     </div>
   </div>
 </template>
 
 <script>
+  import el_list from '../el_list/el_list.vue';
 export default {
   data() {
     return {
       isCollapse: true,
-      AsideChose: undefined,
+      AsideChose: 1,
     };
+  },
+  components:{
+    el_list
   },
   methods: {
     handleOpen(key) {
