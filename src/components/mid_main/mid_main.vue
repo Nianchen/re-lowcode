@@ -1,7 +1,11 @@
 <template>
   <div class="content">
     <div class="left">
-      <div class="midshow">页面</div>
+      <div class="midshow">
+        <draggable :group="Groop">
+          <transition-group :style="style"> </transition-group>
+        </draggable>
+      </div>
     </div>
     <div class="right">
       <div class="midconfig">配置</div>
@@ -10,7 +14,21 @@
 </template>
 
 <script>
-export default {};
+import draggable from "vuedraggable";
+export default {
+  data() {
+    return {
+      Groop: {
+        name: "lowcode",
+        put: true,
+      },
+      style: "min-height:320px;display: block;",
+    };
+  },
+  components: {
+    draggable,
+  },
+};
 </script>
 
 <style scoped>
@@ -28,7 +46,6 @@ export default {};
 .midshow {
   height: 1000px;
   width: 1000px;
-  background-color: rgb(98, 97, 109);
 }
 .right {
   height: 100%;

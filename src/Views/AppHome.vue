@@ -12,16 +12,15 @@
 </template>
 
 <script>
-  import LeftAside from '@/components/left_aside/left_aside.vue'
-  import MidMain from '@/components/mid_main/mid_main.vue';
+import LeftAside from "@/components/left_aside/left_aside.vue";
+import MidMain from "@/components/mid_main/mid_main.vue";
 
 export default {
   name: "AppHome",
-  components:{
+  components: {
     LeftAside,
     MidMain,
- 
-}
+  },
 };
 </script>
 
@@ -56,4 +55,3 @@ export default {
   background-color: #d3dce6;
 }
 </style>
-  
