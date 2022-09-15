@@ -28,8 +28,8 @@
       </el-menu>
     </div>
     <div class="leftmain">
-        <div v-if="AsideChose==1">页面</div>
-        <div v-else-if="AsideChose==2">组件</div>
+      <div v-if="AsideChose == 1">页面</div>
+      <div v-else-if="AsideChose == 2">组件</div>
     </div>
   </div>
 </template>
@@ -61,14 +61,13 @@ export default {
 }
 .content {
   height: 100%;
- 
 }
 .leftaside {
   height: 100%;
   float: left;
 }
-.leftmain{
-    height: 100%;
-    background-color: white;
+.leftmain {
+  height: 100%;
+  background-color: white;
 }
 </style>
