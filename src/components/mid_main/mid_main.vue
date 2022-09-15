@@ -1,13 +1,17 @@
 <template>
   <div class="content">
-    <div class="midshow">
-      <draggable :group="Groop">
-        <transition-group :style="style"> 
-            
-        </transition-group>
-      </draggable>
+    <div class="left">
+      <div class="midshow">
+        <draggable :group="Groop" @add="Onadd" v-model="ShowList"  ghostClass="ghost">
+          <transition-group :style="style">
+            <div v-for="item in ShowList" :key="item.id">{{item.name}}</div>
+          </transition-group>
+        </draggable>
+      </div>
     </div>
-    <div class="midconfig">配置</div>
+    <div class="right">
+      <div class="midconfig">配置</div>
+    </div>
   </div>
 </template>
 
@@ -18,14 +22,19 @@ export default {
     return {
       Groop: {
         name: "lowcode",
-        put: true,
       },
+      ShowList:[],
       style: "min-height:320px;display: block;",
     };
   },
   components: {
     draggable,
   },
+  methods:{
+    Onadd(){
+      console.log(this.ShowList);
+    }
+  }
 };
 </script>
 
@@ -33,18 +42,28 @@ export default {
 .content {
   height: 100%;
   width: 100%;
+  position: relative;
 }
-.midshow {
+.left {
   height: 100%;
   width: 75%;
-  float: left;
-  background-color: rgb(104, 104, 104);
+  overflow: scroll;
+  position: absolute;
+}
+.midshow {
+  height: 1000px;
+  width: 1000px;
+}
+.right {
+  height: 100%;
+  width: 25%;
+  position: absolute;
+  right: 0;
 }
 .midconfig {
   height: 100%;
-  width: 24%;
-  background-color: rgb(240, 200, 200);
-  margin-left: 1%;
-  float: left;
+  width: 100%;
+  background-color: rgb(56, 28, 28);
 }
+
 </style>
