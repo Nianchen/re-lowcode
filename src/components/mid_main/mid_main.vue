@@ -11,23 +11,24 @@
           <elitem
             v-for="item in ShowList"
             :key="item.id"
-            :Comname="item.name"
             :Option="item"
-       
           ></elitem>
         </transition-group>
       </draggable>
     </div>
-    <div class="right">
-      <div class="midconfig"><rightaside></rightaside></div>
-    </div>
+   
+
+      <div class="right">
+        <div class="midconfig"><rightaside></rightaside></div>
+      </div>
+
   </div>
 </template>
 
 <script>
 import draggable from "vuedraggable";
 import elitem from "../el_item/el_index.vue";
-import rightaside from '../right_aside/right_aside.vue'
+import rightaside from "../right_aside/right_aside.vue";
 export default {
   data() {
     return {
@@ -36,16 +37,17 @@ export default {
       },
       style: "min-height: 1000px; display: block;",
       ShowList: [],
+      
     };
   },
   computed: {},
   components: {
     draggable,
     elitem,
-    rightaside
+    rightaside,
   },
   methods: {
- 
+    
   },
 };
 </script>
@@ -79,7 +81,18 @@ export default {
   width: 100%;
   background-color: #d9ecff;
 }
-.group{
+.group {
   background-color: white;
 }
+.ConfigSlider {
+  position: absolute;
+  font-size: 30px;
+  right: 0;
+  top: 1%;
+  color: #409eff;
+  cursor:pointer;
+  z-index: 2;
+}
+
+
 </style>

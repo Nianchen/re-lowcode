@@ -1,6 +1,6 @@
 <template>
-  <div @click="config" :style="Option.LayOptions">
-    <component :is="Option.name"></component>
+  <div @click="config" :style="Option.ShowOption.LayOptions">
+    <component :is="Option.name" :ComOptions="Option.ShowOption.DetailOptions"></component>
   </div>
 </template>
 
@@ -19,7 +19,7 @@ export default {
   methods: {
     ...mapMutations(["ComConfig"]),
     config() {
-      this.ComConfig(this.Option);
+      this.ComConfig(this.Option.ShowOption);
     },
   },
 };
