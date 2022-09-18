@@ -1,40 +1,52 @@
 <template>
   <div class="content">
     <div class="left">
-      <div class="midshow">
-        <draggable :group="Groop" @add="Onadd" v-model="ShowList"  ghostClass="ghost">
-          <transition-group :style="style">
-            <div v-for="item in ShowList" :key="item.id">{{item.name}}</div>
-          </transition-group>
-        </draggable>
-      </div>
+      <draggable
+        :group="Groop"
+        v-model="ShowList"
+        ghostClass="ghost"
+        class="midshow"
+      >
+        <transition-group class="group" :style="style">
+          <elitem
+            v-for="item in ShowList"
+            :key="item.id"
+            :Comname="item.name"
+            :Option="item"
+       
+          ></elitem>
+        </transition-group>
+      </draggable>
     </div>
     <div class="right">
-      <div class="midconfig">配置</div>
+      <div class="midconfig"><rightaside></rightaside></div>
     </div>
   </div>
 </template>
 
 <script>
 import draggable from "vuedraggable";
+import elitem from "../el_item/el_index.vue";
+import rightaside from '../right_aside/right_aside.vue'
 export default {
   data() {
     return {
       Groop: {
         name: "lowcode",
       },
-      ShowList:[],
-      style: "min-height:320px;display: block;",
+      style: "min-height: 1000px; display: block;",
+      ShowList: [],
     };
   },
+  computed: {},
   components: {
     draggable,
+    elitem,
+    rightaside
   },
-  methods:{
-    Onadd(){
-      console.log(this.ShowList);
-    }
-  }
+  methods: {
+ 
+  },
 };
 </script>
 
@@ -51,8 +63,9 @@ export default {
   position: absolute;
 }
 .midshow {
+  position: relative;
   height: 1000px;
-  width: 1000px;
+  width: 99%;
 }
 .right {
   height: 100%;
@@ -61,9 +74,12 @@ export default {
   right: 0;
 }
 .midconfig {
+  margin-left: 10px;
   height: 100%;
   width: 100%;
-  background-color: rgb(56, 28, 28);
+  background-color: #d9ecff;
 }
-
+.group{
+  background-color: white;
+}
 </style>

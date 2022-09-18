@@ -29,9 +29,14 @@ export default {
   height: 100%;
 }
 
-.el-header,
+.el-header{
+  background-color: #79bbff;
+  color: white;
+  text-align: center;
+  line-height: 60px;
+}
 .el-footer {
-  background-color: #b3c0d1;
+  background-color: #d3dce6;
   color: #333;
   text-align: center;
   line-height: 60px;
@@ -45,10 +50,9 @@ export default {
 }
 
 .el-main {
-  background-color: #e9eef3;
+  background-color: #e4edf6;
   color: #333;
-  text-align: center;
-  line-height: 160px;
+
 }
 
 .el-menu {

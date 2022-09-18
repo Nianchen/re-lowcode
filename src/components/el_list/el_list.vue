@@ -2,7 +2,7 @@
   <div class="content">
     <draggable :group="Group" v-model="Ellist"  :clone="DeepClone" ghostClass="ghost">
       <transition-group>
-        <div v-for="(item) in Ellist" :key="item.id" class="el_list_item" :id="item.name">{{ item.name }}</div>
+        <div v-for="(item) in Ellist" :key="item.id" class="el_list_item" :id="item.name">{{ item.title }}</div>
       </transition-group>
     </draggable>
   </div>
@@ -53,7 +53,11 @@ export default {
     border-radius: 5%;
     border-style:inset;
     border-color: #7cbdff;
-    /* border: 2px solid #409EFF; */
+    text-align: center;
+    line-height: 150px;
+    color:#7cbdff;
+    font-size: 20px;
+    cursor: pointer;
   }
   .ghost{
   border: 1px dashed rgb(64 158 255 / 60%);
