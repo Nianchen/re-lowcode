@@ -1,7 +1,7 @@
 <template>
   <div class="content">
-    <draggable :group="Group" v-model="Ellist"  :clone="DeepClone" ghostClass="ghost">
-      <transition-group>
+    <draggable :group="Group" v-model="Ellist"  :clone="DeepClone" ghostClass="ghost" >
+      <transition-group tag="div" class="ellist">
         <div v-for="(item) in Ellist" :key="item.id" class="el_list_item" :id="item.name">{{ item.title }}</div>
       </transition-group>
     </draggable>
@@ -43,7 +43,9 @@ export default {
   .content{
     position: relative;
     text-align: center;
+
   }
+
   .el_list_item{
     position: relative;
     left: 10%;

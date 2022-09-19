@@ -6,13 +6,15 @@
         v-model="ShowList"
         ghostClass="ghost"
         class="midshow"
+        @add="Onadd"
       >
         <transition-group class="group" :style="style">
           <elitem
-            v-for="item in ShowList"
+            v-for="(item,index) in ShowList"
             :key="item.id"
             :Option="item"
-          ></elitem>
+            :index="index"
+            @Comdel="Comdel"></elitem>
         </transition-group>
       </draggable>
     </div>
@@ -37,7 +39,6 @@ export default {
       },
       style: "min-height: 1000px; display: block;",
       ShowList: [],
-      
     };
   },
   computed: {},
@@ -47,8 +48,24 @@ export default {
     rightaside,
   },
   methods: {
-    
+    Onadd(){
+      this.SaveLocal()
+    },
+    SaveLocal(){
+      let local = JSON.stringify(this.ShowList)
+      window.localStorage.setItem('local',local)
+    },
+    Comdel(delindex){
+      this.$nextTick(()=>{
+      this.ShowList.splice(delindex,1)
+      this.SaveLocal()
+     })
+    }
   },
+  beforeMount(){
+    let local = JSON.parse(window.localStorage.getItem('local'))
+    this.ShowList.push(...local)
+  }
 };
 </script>
 

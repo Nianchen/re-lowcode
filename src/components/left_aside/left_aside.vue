@@ -29,7 +29,7 @@
       </el-menu>
     </div>
     <div class="leftmain">
-      <div v-if="AsideChose == 1"><el_list></el_list></div>
+     <el_list  v-if="AsideChose == 1"></el_list>
       <div v-else-if="AsideChose == 2">yemian</div>
     </div>
   </div>
@@ -82,5 +82,6 @@ export default {
   height: 100%;
   background-color: white;
   border-left: 10px solid #c2dffc;
+  overflow: scroll;
 }
 </style>

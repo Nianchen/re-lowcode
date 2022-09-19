@@ -21,5 +21,10 @@ body,
   height: 100%;
   margin: 0;
   padding: 0;
+  
+}
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
 }
 </style>
