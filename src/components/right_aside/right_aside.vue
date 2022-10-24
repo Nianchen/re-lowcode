@@ -69,4 +69,8 @@ export default {
   left: 2%;
   top: 2%;
 }
+.Comdel{
+  position: relative;
+  left: 15%;
+}
 </style>

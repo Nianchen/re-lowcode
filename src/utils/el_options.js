@@ -19,6 +19,9 @@ const elbutton = {
       display: "inline-block",
       margin: "5px",
       padding:"5px",
+      position:"relative",
+      left:"0",
+      right:"0"
     },
   },
 };

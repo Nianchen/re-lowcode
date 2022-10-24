@@ -11,14 +11,8 @@
         <el-table-column label="操作" width="140">
           <template slot-scope="scope">
             <el-button size="mini" @click="Change(scope.row)">切换</el-button>
-            <el-button
-              size="mini"
-              type="danger"
-              v-if="scope.row !== 'index'"
-              style="margin-left: 3px"
-              @click="PageDelete(scope.$index)"
-              >删除</el-button
-            >
+            <el-button size="mini" type="danger" v-if="scope.row !== 'index'" style="margin-left: 3px"
+              @click="PageDelete(scope.$index)">删除</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -27,7 +21,7 @@
 </template>
 
 <script>
-import { mapState, mapMutations ,mapActions} from "vuex";
+import { mapState, mapMutations, mapActions } from "vuex";
 
 export default {
   data() {
@@ -43,24 +37,41 @@ export default {
   },
   methods: {
     ...mapActions(["PageLoading"]),
-    ...mapMutations(["PageSet", "ChangePage","PageDel"]),
+    ...mapMutations(["PageSet", "ChangePage", "PageDel"]),
     Pageadd() {
       this.$prompt("请输入新页面", "提示", {
         confirmButtonText: "确定",
         cancelButtonText: "取消",
+        inputValidator: (value) => {       // 点击按钮时，对文本框里面的值进行验证
+          if (!value) {
+            return '输入不能为空';
+          }
+        },
       })
         .then(({ value }) => {
-          this.$message({
+          let List = this.$store.state.PageList
+          if(List.includes(value)){
+            this.$message({
+            type: "error",
+            message: value + '已经存在',
+          });
+          }
+          else{
+               this.$message({
             type: "success",
             message: "你的新页面是: " + value,
           });
           this.PageSet({ name: value, list: [] });
+          }
+       
+        }).catch((err) => {
+          console.log(err);
         })
     },
     Change(toPage) {
-    this.PageLoading(toPage)
+      this.PageLoading(toPage)
     },
-    PageDelete(index){
+    PageDelete(index) {
       this.PageDel(index)
       this.PageLoading('index')
     }

@@ -28,6 +28,7 @@ export default {
   methods: {
     ...mapMutations(["ComConfig",'ComIndex']),
     config() {
+      console.log(this.index);
       this.ComConfig(this.Option.ShowOption);
       this.ComIndex(this.index)
       //删除用

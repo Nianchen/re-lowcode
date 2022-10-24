@@ -15,8 +15,15 @@
           <el-option label="inline-block" value="inline-block"></el-option>
         </el-select>
       </el-form-item>
+      <el-form-item label="定位模式">
+        <el-select v-model="ShowOption.LayOptions.position" placeholder="请选择定位模式">
+          <el-option label="relative" value="relative"></el-option>
+          <el-option label="absolute" value="absolute"></el-option>
+          <el-option label="fixed" value="fixed"></el-option>
+        </el-select>
+      </el-form-item>
       <el-form-item label="外边距">
-        <el-input-number v-model="num" @change="handleChange" label="描述文字" :min='0' style="width:80%"></el-input-number> px
+        <el-input-number v-model="num" @change="handleChange" label="描述文字" :min='0' style="width:80%" size="mini"></el-input-number> px
       </el-form-item>
     </el-form>
   </div>
@@ -43,5 +50,7 @@ export default {
 </script>
 
 <style>
-
+#方法{
+  position: fixed;
+}
 </style>
