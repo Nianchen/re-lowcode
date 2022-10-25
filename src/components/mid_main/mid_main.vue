@@ -49,6 +49,7 @@ export default {
     ShowList: {
       set(val) {
         this.ShowListPush(val);
+        this.SaveLocal()
       },
       get() {
         return this.$store.state.ShowList;
@@ -80,14 +81,11 @@ export default {
       let local = JSON.parse(
         window.localStorage.getItem(this.$store.state.NowPage)
       );
-      this.ShowList.push(...local);
+      console.log(local);
+      // this.ShowList.push(...local);
     }
     this.PageInit();
-    //定时保存
-    setInterval(() => {
-      this.SaveLocal();
-      console.log("save success");
-    }, 5000);
+    // 定时保存
   },
 };
 </script>

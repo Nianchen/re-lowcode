@@ -37,8 +37,10 @@ const store = new Vuex.Store({
     PageInit(state) { //页面初始化
       if (GetlocalStorage("PageList")) {
         const PageListJson = GetlocalStorage("PageList")
+        state.PageList.length = 0
         state.PageList.push(...JSON.parse(PageListJson));
       } else {
+        state.PageList.length = 0
         state.PageList.push("index");
       }
     },
@@ -63,6 +65,7 @@ const store = new Vuex.Store({
       state.ShowList = JSON.parse(PageDetailJson);
     },
     ShowListPush(state, newEl) {
+      console.log("==========");
       state.ShowList = newEl;
     },
     ShowListDel(state, index) {

@@ -1,6 +1,7 @@
 <template>
   <div class="Pagelist">
     <el-button type="primary" @click="Pageadd">增加页面</el-button>
+    <el-button type="success" @click="Previe">预览页面</el-button>
     <div>
       <el-table :data="PageList" style="width: 100%">
         <el-table-column label="页面" width="70">
@@ -67,6 +68,9 @@ export default {
         }).catch((err) => {
           console.log(err);
         })
+    },
+    Previe(){
+      this.$router.push('preview')
     },
     Change(toPage) {
       this.PageLoading(toPage)
